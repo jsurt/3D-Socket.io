@@ -1,0 +1,28 @@
+Title: IGES Export Journal (built for Autodesk 3ds Max)
+==============================================================================
+File: C:\Users\Shah Zaib\Desktop\Retro TV\Formats\Retro TV.xlo
+Date: Wed, Apr 16, 2014
+Time: 02:50:24
+==============================================================================
+
+Translating IGES file:        C:\Users\Shah Zaib\Desktop\Retro TV\Formats\Retro
+TV.IGS
+
+==============================================================================
+Error Summary:
+
+The following message was issued 1 time(s)
+Model specified to be formatted does not contain any entities.
+
+Information: 0
+Status:      0
+Warning:     0
+Error:       1
+Fatal:       0
+
+Elapsed Time:
+
+Processor: 00:00:01
+Clock:     00:00:01
+==============================================================================
+

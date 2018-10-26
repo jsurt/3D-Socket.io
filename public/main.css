@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: linear-gradient(to bottom, #1465c4, #000000);
+}
+
+body {
+    font-family: 'Cinzel', serif;
+}
+
+main {
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    padding: 10px;
+}
+
+.header-form-wrap {
+    width: 500px;
+    margin: auto;
+    margin-top: 300px;
+    color: #ffffff;
+}
+
+.header {
+    font-size: 36px;
+}
+
+.sub-header {
+    font-size: 22px;
+}
+
+div{ 
+    backface-visibility: hidden;
+    /*pointer-events: none;  */
+}
+
+#tv-div{
+    pointer-events: none;      
+    margin-top: 500px;
+}
+
+#three div {
+    padding-top: 150px;
+}
+
+.channel-div {
+    position: fixed;
+    left: 60%;
+    bottom: -300px;
+}
+
+.change-video {
+    width: 200px;
+    height: 75px;
+}
+
+.test {
+    width: 100px;
+    height: 70px;
+}
+

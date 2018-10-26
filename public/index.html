@@ -1,0 +1,85 @@
+<html>
+<!--<link rel="stylesheet" type="text/css" href="animate.css">-->
+<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+<!--<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="main.css">-->
+<script src="https://threejs.org/build/three.min.js"></script>
+<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+<script src="https://threejs.org/examples/js/renderers/CSS3DRenderer.js"></script>
+<script src="http://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <style>
+      
+ 
+  </style>
+<body>
+        
+            <main role="main">
+                <div class="header-form-wrap">
+                    <div class="header-wrap">
+                        <h1 class="header">Game of Thrones-Tube</h1>
+                        <p class="sub-header">Watch clips of your favorite characters</p>
+                    </div>
+                    <form id="searchForm">
+                        <input type="text" id="searchCharacter" autocomplete="off" class="js-capitalize" placeholder="Search character" value="Jon Snow">
+                    </form>
+                  </div>    
+                    <button class="test">Click me</button>
+
+                    <div class="info-results" aria-live="assertive"></div>
+                    <div class="youtube-results" aria-live="assertive"></div>
+                
+            </main>
+            <div class="tv-container">
+              <div id="three" hidden></div>
+              <div class="channel-div">
+                <div class="channel-number"></div>
+                <button class="change-video" data-i='1'>Up</button>
+                <button class="change-video" data-i='-1'>Down</button>
+              </div>
+            </div>
+            <!--<ul class="pages">
+                <li class="chat page">
+                  <div class="chatArea">
+                    <ul class="messages"></ul>
+                  </div>
+                  <input class="inputMessage" placeholder="Type here..."/>
+                </li>
+                <li class="login page">
+                  <div class="form">
+                    <h3 class="title">What's your nickname?</h3>
+                    <input class="usernameInput" type="text" maxlength="14" />
+                  </div>
+                </li>
+              </ul>-->
+            
+              
+        
+</body>
+<!--<script src="./threeTV.js"></script>-->
+
+    <!--<script src="channels.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>-->
+    <!--<script src="/main.js"></script>-->
+
+    <script>
+
+        var script = document.createElement('script');
+        script.src = `./index.js?v=${Math.random()}`;
+        console.log(script)
+        document.head.appendChild(script); //or something of the likes
+
+        var link = document.createElement('link');
+        link.href = `./main.css?v=${Math.random()}`;
+        link.rel = 'stylesheet';
+        console.log(link)
+        document.head.appendChild(link); //or something of the likes
+    </script>
+    <!--<script src="./index.js"></script>-->
+
+</html>
