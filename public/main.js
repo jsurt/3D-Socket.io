@@ -23,7 +23,7 @@ $(function() {
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
 
-  var socket = io();
+  //var socket = io();
 
   const addParticipantsMessage = (data) => {
     var message = '';
@@ -280,3 +280,7 @@ $(function() {
   });
 
 });
+
+$('#searchForm').on('submit', function(){
+  $('body').html('');
+})

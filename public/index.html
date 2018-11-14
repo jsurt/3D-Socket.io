@@ -1,91 +1,113 @@
-<html>
-<!--<link rel="stylesheet" type="text/css" href="animate.css">-->
-<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<!--<link rel="stylesheet" href="main.css">-->
-<script src="https://threejs.org/build/three.min.js"></script>
-<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
-<script src="https://threejs.org/examples/js/renderers/CSS3DRenderer.js"></script>
-<script src="http://threejs.org/examples/js/loaders/OBJLoader.js"></script>
-<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Retro TV</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="media-queries.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://threejs.org/examples/js/renderers/CSS3DRenderer.js"></script>
+  <script src="http://threejs.org/examples/js/loaders/OBJLoader.js"></script>
+  <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-  <style>
-      
- 
-  </style>
+</head>
 <body>
         
             <main role="main">
                 <div class="header-form-wrap">
-                    <div class="header-wrap">
-                        <h1 class="header">Game of Thrones-Tube</h1>
-                        <p class="sub-header">Watch clips of your favorite characters</p>
-                    </div>
-                    <form id="searchForm">
-                        <input type="text" id="searchCharacter" autocomplete="off" class="js-capitalize" placeholder="Search character" value="Jon Snow">
-                    </form>
-                  </div>    
-                    <button class="test">Click me</button>
+                  <div class="header-wrap">
+                      <p class="header">Retro</p><img src="http://icons.iconarchive.com/icons/designbolts/free-retro-style-social/256/Youtube-icon.png" alt="Retro YouTube logo" class="youtube-logo"><p class="header">YouTube</p>
+                      <p class="sub-header">Watch YouTube on a retro TV</p>
+                  </div>
+                </div>    
+                <form id="search-form">
+                    <input type="text" id="search-video" autocomplete="off" class="js-capitalize" placeholder="Search YouTube">
+                    <button type="submit" id="search-btn"></button>
+                </form>
 
-                    <div class="info-results" aria-live="assertive"></div>
-                    <div class="youtube-results" aria-live="assertive"></div>
+                    <!--<div class="info-results" aria-live="assertive"></div>
+                    <div class="youtube-results" aria-live="assertive"></div>-->
                 
             </main>
             <div class="tv-container">
               <div id="three" hidden></div>
-              <div class="channel-div">
-                <div class="channel-number"></div>
-                <button class="change-video" data-i='1'>Up</button>
-                <button class="change-video" data-i='-1'>Down</button>
+            </div>
+
+            <div class="remote" id="remote">
+              <div class="buttons-div" id="buttons-div">
+                <a href="" class="remote-btn power-button">
+                  <img src="https://image.flaticon.com/icons/svg/1040/1040246.svg" alt="power-button" class="remote-btn-icon power-button">
+                </a>
+                <a href="" class="remote-btn home-button">
+                  <img src="https://image.flaticon.com/icons/svg/52/52860.svg" alt="home-button" class="remote-btn-icon home-button">
+                </a>
+                <a href="" class="remote-btn play-button"> 
+                  <img src="https://image.flaticon.com/icons/svg/786/786430.svg" alt="play-button" class="remote-btn-icon play-button">
+                </a>
+                <a href="" class="remote-btn channel-down">
+                  <img src="https://image.flaticon.com/icons/png/512/261/261937.png" alt="channel-down button" class="remote-btn-icon channel-down">
+                </a>
+                <a href="" class="remote-btn channel-up">
+                  <img src="https://image.flaticon.com/icons/svg/261/261936.svg" alt="channel-up button" class="remote-btn-icon channel-up">
+                </a>
+                <a href="" class="remote-btn info-button">
+                  <img src="https://image.flaticon.com/icons/svg/189/189665.svg" alt="info-button" class="remote-btn-icon info-button">
+                </a>
+              </div>
+              <div class="js-info">
+                <p class="video-info video-title"></p>
+                <p class="video-info video-channel"></p>
+                <p class="video-info video-description"></p>
               </div>
             </div>
-            
-
-            <ul class="pages">
-              <li class="chat page">
-                <div class="chatArea">
-                  <ul class="messages"></ul>
-                </div>
-                <input class="inputMessage" placeholder="Type here..."/>
-              </li>
-              <li class="login page">
-                <div class="form">
-                  <h3 class="title">What's your nickname?</h3>
-                  <input class="usernameInput" type="text" maxlength="14" />
-                </div>
-              </li>
-            </ul>
           
             <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
             <script src="/socket.io/socket.io.js"></script>
-            <script src="/main.js"></script>
-            
               
         
 </body>
-<!--<script src="./threeTV.js"></script>-->
 
-    <!--<script src="channels.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>-->
-    <!--<script src="/main.js"></script>-->
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    
     <script>
 
+        var socket = io();
+
         var script = document.createElement('script');
-        script.src = `./index.js?v=${Math.random()}`;
+        script.src = `./youtube-tube.js?v=${Math.random()}`;
         console.log(script)
         document.head.appendChild(script); //or something of the likes
+
+        /*var script = document.createElement('script');
+        script.src = `./remote.js?v=${Math.random()}`;
+        console.log(script)
+        document.head.appendChild(script); //or something of the likes*/
+        
+        
 
         var link = document.createElement('link');
         link.href = `./main.css?v=${Math.random()}`;
         link.rel = 'stylesheet';
         console.log(link)
         document.head.appendChild(link); //or something of the likes
+
+        var link = document.createElement('link');
+        link.href = `./style.css?v=${Math.random()}`;
+        link.rel = 'stylesheet';
+        console.log(link);
+        document.head.appendChild(link); //or something of the likes
+        
     </script>
     <!--<script src="./index.js"></script>-->
-
+    <script src="remote.js"></script>
 </html>

@@ -1,10 +1,21 @@
-// Setup basic express server
+ // Setup basic express server
 var express = require('express');
 var app = express();
 var path = require('path');
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
+
+//My additions for tv remote
+//const remote = require('remote');
+const eventEmitter = require('events');
+const emitter = new eventEmitter();
+
+emitter.on('remoteClicked', function() {
+  console.log('a button was clicked');
+});
+
+emitter.emit('remoteClicked');
 
 server.listen(port, () => {
   console.log('Server listening at port %d', port);
@@ -19,11 +30,17 @@ var numUsers = 0;
 
 io.on('connection', (socket) => {
   var addedUser = false;
-
+  socket.on('remoteClicked', (data) => {
+    console.log("data");
+    console.log(data);
+    io.sockets.emit('clickButton', {
+      data: data
+    });
+  });
   // when the client emits 'new message', this listens and executes
   socket.on('new message', (data) => {
     // we tell the client to execute 'new message'
-    socket.broadcast.emit('new message', {
+    io.emit('new message', {
       username: socket.username,
       message: data
     });
@@ -74,3 +91,4 @@ io.on('connection', (socket) => {
     }
   });
 });
+

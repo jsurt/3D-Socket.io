@@ -1,0 +1,71 @@
+@media only screen and (max-width: 600px) {
+    main, .tv-container{
+        display: none;
+    }
+    #remote {
+        display: block;
+        width: 100%;
+        margin-top: 100px;
+    }
+    #buttons-div {
+        width: 200px;
+        display: grid;
+        grid-template-columns: 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+        grid-template-areas: 
+        "power home"
+        "play play"
+        "down up"
+        "info info";
+        margin: auto;
+    }
+    .remote-btn {
+        /*padding: 10px;*/
+        text-align: center;
+        text-decoration: none;
+    }
+    .remote-btn-icon {
+        width: 75px;
+    }
+    .power-button {
+        grid-area: power;
+    }
+    .home-button {
+        width: 77px;
+        height: 77px;
+        grid-area: home;
+        background: #ffff00;
+        border: 0.1px solid #000000;
+        border-radius: 50%;
+    }
+    .play-button {
+        grid-area: play;
+        justify-content: center;
+    }
+    .channel-down {
+        grid-area: down;
+    }
+    .channel-up {
+        grid-area: up;
+    }
+    .info-button {
+        grid-area: info;
+        justify-content: center;
+    }
+    a:hover {
+        cursor: pointer;
+    }
+    .js-info {
+        font-family: 'Raleway', sans-serif;
+        display: block;
+        width: 80%;
+        margin: auto;
+        color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    #search-video {
+        width: 400px;
+    }
+}
