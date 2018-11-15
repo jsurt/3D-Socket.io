@@ -16,7 +16,7 @@
         grid-template-columns: 100px 100px;
         grid-template-rows: 100px 100px 100px;
         grid-template-areas: 
-        "power home"
+        "home home"
         "down up"
         "info info";
         margin: auto;
@@ -39,6 +39,7 @@
         background: #ffff00;
         border: 0.1px solid #000000;
         border-radius: 50%;
+        justify-content: center;
     }
     .channel-down {
         grid-area: down;
