@@ -28,7 +28,7 @@ main {
 .header-form-wrap {
     width: 100%;
     margin: auto;
-    margin-top: 20%;
+    margin-top: 17%;
     color: #ffffff;
     font-weight: 100;
 }
@@ -119,6 +119,25 @@ div{
 
 #three div {
     padding-top: 150px;
+}
+
+.js-info {
+    position: fixed;
+    left: 10px;
+    top: 200px;
+    font-family: 'Raleway', sans-serif;
+    display: block;
+    margin: auto;
+    color: #ffffff;
+}
+
+.video-info {
+    width: 150px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.video-description {
+    border: none;
 }
 
 .remote {

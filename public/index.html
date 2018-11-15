@@ -30,7 +30,7 @@
                   </div>
                 </div>    
                 <form id="search-form">
-                    <input type="text" id="search-video" autocomplete="off" class="js-capitalize" placeholder="Search YouTube">
+                    <input type="text" id="search-video" autocomplete="off" class="js-capitalize" placeholder="Search YouTube" value="red sox">
                     <button type="submit" id="search-btn"></button>
                 </form>
 
@@ -41,6 +41,12 @@
             <div class="tv-container">
               <div id="three" hidden></div>
             </div>
+
+            <div class="js-info">
+                <div class="video-info video-title" hidden></div>
+                <div class="video-info video-channel" hidden></div>
+                <div class="video-info video-description" hidden></div>
+              </div>
 
             <div class="remote" id="remote">
               <div class="buttons-div" id="buttons-div">
@@ -60,11 +66,7 @@
                   <img src="https://image.flaticon.com/icons/svg/189/189665.svg" alt="info-button" class="remote-btn-icon info-button">
                 </a>
               </div>
-              <div class="js-info">
-                <p class="video-info video-title"></p>
-                <p class="video-info video-channel"></p>
-                <p class="video-info video-description"></p>
-              </div>
+              
             </div>
           
             <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

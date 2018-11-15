@@ -11,18 +11,6 @@ $('#remote a').on('click', (event) => {
 });
 //var openedWindow;
 var isOpen = false;
-/*$('.power-button').on('click', () => {
-    
-    return;
-    /*
-    //isOpen = !isOpen;
-    //window.open('localhost:3000');
-    //window.close('localhost:3000');
-});*/
-
-/*function remoteGetInfo() {
-    $('video.title').html()
-}*/
 
 function openWindow() {
   openedWindow = window.open(window.location.href, "_blank", "x=y, width=1500, height=900, top=100, left=500");
@@ -47,6 +35,7 @@ socket.on('clickButton', (data) => {
         case 'home-button':
             console.log('home');
             goToHomePage();
+            $('#search-video').empty();
             break;
         case 'play-button':
             console.log('play');

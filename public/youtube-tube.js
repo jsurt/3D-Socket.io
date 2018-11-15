@@ -166,7 +166,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 data: {
                     part: "snippet",
                     key: "AIzaSyAH3n0AVo3RaBhwbs2lNFCQh6UJmluqj-w",
-                    q: "dog",
+                    q: `${query}`,
                     per_page: 9,
                 }, 
                 success: function(data){
@@ -193,6 +193,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             //$('.change-video').click(function(event){
                 //console.log($(this).data('i'));
                 //channel += Number($(this).data('i'));
+                $('.video-info').attr('hidden', true);
                 if (channel > items.length - 1){
                     channel = 0;
                     
@@ -215,6 +216,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function remoteGetInfo() {
+            $('.video-info').removeAttr('hidden');
             const items = youtubeData.responseJSON.items;
             console.log(items);
             console.log(items[channel].snippet.title);
@@ -223,16 +225,25 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 <p class="video-info video-title">${items[channel].snippet.title}</p>
                 <p class="video-info video-channel">${items[channel].snippet.channelTitle}</p>
                 <p class="video-info">${items[channel].snippet.description}</p>`)*/
-            $('.video-title').html(items[channel].snippet.title);
-            $('.video-channel').html(items[channel].snippet.channelTitle);
-            $('.video-description').html(items[channel].snippet.description);
+            $('.video-title').html(`
+                <!--<span class="title">Video Title</span>-->
+                <p>${items[channel].snippet.title}</p>
+            `);
+            $('.video-channel').html(`
+                <!--<span class="channel">Channel Title</span>-->
+                <p>${items[channel].snippet.channelTitle}</p>
+            `);
+            $('.video-description').html(`
+                <!--<span class="description">Summary</span>-->
+                <p>${items[channel].snippet.description}</p>
+            `);
         }
         
         function startSearch() {
             $('#search-form').submit(function(event){
                 event.preventDefault();
                 query = $('#search-video').val();
-                displayCharacterInfo("dog", gotData);
+                displayCharacterInfo(query, gotData);
                 $('#three').removeAttr('hidden');
                 $('main').attr('hidden', true);
             })
@@ -241,5 +252,5 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         /*$('.test').click(function(){
             $('#three').removeAttr('hidden');
         })*/
-        displayCharacterInfo("dog", gotData);
+        //displayCharacterInfo("dog", gotData);
         startSearch();

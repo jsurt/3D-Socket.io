@@ -2,6 +2,9 @@
     main, .tv-container{
         display: none;
     }
+    .video-info {
+        display: none;
+    }
     #remote {
         display: block;
         width: 100%;
@@ -49,13 +52,6 @@
     }
     a:hover {
         cursor: pointer;
-    }
-    .js-info {
-        font-family: 'Raleway', sans-serif;
-        display: block;
-        width: 80%;
-        margin: auto;
-        color: #ffffff;
     }
 }
 
