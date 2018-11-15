@@ -211,7 +211,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             console.log(player);
         }
 
-        /*function remoteGetInfo() {
+        function remoteGetInfo() {
             $('.video-info').removeAttr('hidden');
             const items = youtubeData.responseJSON.items;
             console.log(items);
@@ -233,7 +233,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 <!--<span class="description">Summary</span>-->
                 <p>${items[channel].snippet.description}</p>
             `);
-        }*/
+        }
         
         function startSearch() {
             $('#search-form').submit(function(event){
