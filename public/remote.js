@@ -33,7 +33,6 @@ socket.on('clickButton', (data) => {
             isOpen = !isOpen;
             break;
         case 'home-button':
-            $('.js-info').empty();
             console.log('home');
             goToHomePage();
             break;
