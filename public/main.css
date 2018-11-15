@@ -134,7 +134,7 @@ div{
 .video-info {
     width: 150px;
     border-bottom: 1px solid #ffffff;
-    margin-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .video-description {
