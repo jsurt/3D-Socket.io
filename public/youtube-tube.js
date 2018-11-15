@@ -152,11 +152,6 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
         
         function displayCharacterInfo(data, characterId) {
-            /*//console.log(data[characterId]);
-            $('.info-results').html(
-                `<p class="character-name">Name: ${data[characterId].Name}</p>
-                <p class="character-culture">Culture: ${data[characterId].Culture}</p>`
-            );*/   
             console.log(data);
             youtubeData = $.ajax({
                 type: "GET",
@@ -207,6 +202,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function goToHomePage() {
+            $('.js-info').attr('hidden', true);
             $('#three').attr('hidden', true);
             $('main').removeAttr('hidden');
         }
@@ -248,9 +244,4 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 $('main').attr('hidden', true);
             })
         }
-        
-        /*$('.test').click(function(){
-            $('#three').removeAttr('hidden');
-        })*/
-        //displayCharacterInfo("dog", gotData);
         startSearch();

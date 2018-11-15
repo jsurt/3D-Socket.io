@@ -33,22 +33,18 @@ socket.on('clickButton', (data) => {
             isOpen = !isOpen;
             break;
         case 'home-button':
+            $('.js-info').empty();
             console.log('home');
             goToHomePage();
-            $('#search-video').empty();
-            break;
-        case 'play-button':
-            console.log('play');
-            remotePlayVideo();
             break;
         case 'channel-up':
-            $('js-info').empty();
+            $('.js-info').empty();
             console.log('channel-up')
             channel ++;
             changeVideo();
             break;
         case 'channel-down':
-            $('js-info').empty();
+            $('.js-info').empty();
             console.log('channel-down')
             channel --;
             changeVideo();
