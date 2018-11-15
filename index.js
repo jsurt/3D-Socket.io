@@ -33,9 +33,19 @@ io.on('connection', (socket) => {
   socket.on('remoteClicked', (data) => {
     console.log("data");
     console.log(data);
-    io.sockets.emit('clickButton', {
+    if(data.button === "power-button") {
+      socket.emit('clickButton', {
+        data: data
+      });
+    } else {
+      io.sockets.emit('clickButton', {
+        data: data
+      });
+    }
+    /*io.sockets.emit('clickButton', {
       data: data
-    });
+    });*/
+    
   });
   // when the client emits 'new message', this listens and executes
   socket.on('new message', (data) => {
