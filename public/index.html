@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="An app to view YouTube on a retro TV and control the tv with a remote">
   <title>Retro TV</title>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
@@ -38,8 +39,6 @@
                 <img src="./example-photo-api-project.png" alt="Example Photo" id="example-photo">
                 <p>Lorem Ipsum</p>
               </div>
-                    <!--<div class="info-results" aria-live="assertive"></div>
-                    <div class="youtube-results" aria-live="assertive"></div>-->
                 
             </main>
             <div class="tv-container">
@@ -47,9 +46,9 @@
             </div>
 
             <div class="js-info">
-                <div class="video-info video-title" hidden></div>
-                <div class="video-info video-channel" hidden></div>
-                <div class="video-info video-description" hidden></div>
+                <div class="video-info video-title" hidden aria-live="assertive"></div>
+                <div class="video-info video-channel" hidden aria-live="assertive"></div>
+                <div class="video-info video-description" hidden aria-live="assertive"></div>
               </div>
 
             <div class="remote" id="remote">
@@ -89,15 +88,9 @@
         var script = document.createElement('script');
         script.src = `./youtube-tube.js?v=${Math.random()}`;
         console.log(script)
-        document.head.appendChild(script); //or something of the likes
-
-        /*var script = document.createElement('script');
-        script.src = `./remote.js?v=${Math.random()}`;
-        console.log(script)
-        document.head.appendChild(script); //or something of the likes*/
+        document.head.appendChild(script); 
         
         
     </script>
-    <!--<script src="./index.js"></script>-->
     <script src="remote.js"></script>
 </html>

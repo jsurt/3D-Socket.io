@@ -1,6 +1,5 @@
 var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         var scene2, renderer2;
-        //var scene3, renderer3;
         var items = [];
         var channel = 0;
 
@@ -21,31 +20,11 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             controls.rotateSpeed = 1.0;
             controls.zoomSpeed = 1.2;
             controls.panSpeed = 0.8;
-            //controls.enableZoom = false;
 
             //Scene
             scene = new THREE.Scene();
 
-            /*
-            //CubeGeometry
-            rectangle = new THREE.Mesh(new THREE.CubeGeometry(600, 350, 100), new THREE.MeshPhongMaterial());
-            scene.add(rectangle);
-            //TorusGeometry
-            var torus = new THREE.Mesh(new THREE.TorusGeometry(60, 30, 20, 20),
-                                       new THREE.MeshNormalMaterial());
-            torus.position.set(10, 0, -200);
-            scene.add(torus);
-            //HemisphereLight
-            hemiLight = new THREE.HemisphereLight(0xffbf67, 0x15c6ff);
-            scene.add(hemiLight);
-            */
-
-
-
-
-            //console.log(Math.random()) 
-            // scene
-            //scene = new THREE.Scene();
+           
             var ambient = new THREE.AmbientLight( 0x101030 );
             scene.add( ambient );
             var directionalLight = new THREE.DirectionalLight( 0xffeedd );
@@ -60,30 +39,18 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             // model
             var loader = new THREE.OBJLoader( manager );
             loader.load( 'Retro_TV/Retro_TV.obj', function ( object ) {
-                //console.log(object);
                 object.traverse( function ( child ) {
                     if ( child instanceof THREE.Mesh ) {
-                        //console.log(child) 
                         child.material.forEach(element => {
-                            //element.color.setHex(0x00FF00);
                             let color = '0x'+(Math.random()*0xFFFFFF<<0).toString(16);
-                            ////console.log(color);
-            
-                            element.color.setHex('0x777777');
-                            ////console.log(element);
-                            ////console.log(color);
-                            //element.texture.setHex(0x00FF00);
-                            //element.map = texture;
+                            element.color.setHex('0x777777');;
                         });
-                          //child.material.ambient.setHex(0xFF0000);
-                                          //child.material[0].color.setHex(0x00FF00);
-                        //child.material.map = texture;
+                          
                     }
                 } );
 
             obj = object
             obj.scale.set(15,15,15);
-            //obj.scale.set(16,16,16);
             obj.position.y = -255;
             scene.add( obj );
             })
@@ -94,7 +61,6 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
 
             //WebGL Renderer
             renderer = new THREE.WebGLRenderer({ antialias: true });
-            //renderer.setClearColor(0xffffff, 1)
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.domElement.style.zIndex = 0;
             document.getElementById("three").appendChild(renderer.domElement);
@@ -125,33 +91,23 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
 
         function animate() {
             requestAnimationFrame(animate);
-            //renderer3.render(scene3, camera)
             renderer2.render(scene2, camera);
             renderer.render(scene, camera);
             controls.update();
         }
-
-        //Get youtube videos
-
-        function getLocalJsonData(searchTerm, callBack) {
-            
-            $.getJSON('characters.json', callBack);
+        
+        function startSearch() {
+            $('#search-form').submit(function(event){
+                event.preventDefault();
+                query = $('#search-video').val();
+                getYouTubeData(query);
+                $('#three').removeAttr('hidden');
+                $('main').attr('hidden', true);
+            })
         }
         
-        function gotData(data) {
-            //console.log(data);
-            //console.log(query);
-            $('#searchCharacter').val('');
-            for(let i = 0; i < data.length; i++) {
-                if(query.toUpperCase() === data[i].Name.toUpperCase()) {
-                    let characterId = i;
-                    //console.log(characterId);
-                    displayCharacterInfo(data, characterId);
-                }
-            }
-        }
-        
-        function displayCharacterInfo(data, characterId) {
+        function getYouTubeData(data, query) {
+            query = $('#search-video').val();
             console.log(data);
             youtubeData = $.ajax({
                 type: "GET",
@@ -185,9 +141,6 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 element.style.borderRadius = "40px";
         }
         function changeVideo() {
-            //$('.change-video').click(function(event){
-                //console.log($(this).data('i'));
-                //channel += Number($(this).data('i'));
                 $('.video-info').attr('hidden', true);
                 if (channel > items.length - 1){
                     channel = 0;
@@ -198,7 +151,6 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 $('.channel-div').text(channel);
                 console.log(channel)
                 renderYoutubeResults();
-            //})
         }
 
         function goToHomePage() {
@@ -206,11 +158,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             $('#three').attr('hidden', true);
             $('main').removeAttr('hidden');
         }
-
-        function remotePlayVideo() {
-            console.log(player);
-        }
-
+        
         function remoteGetInfo() {
             $('.video-info').removeAttr('hidden');
             const items = youtubeData.responseJSON.items;
@@ -235,13 +183,5 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             `);
         }
         
-        function startSearch() {
-            $('#search-form').submit(function(event){
-                event.preventDefault();
-                query = $('#search-video').val();
-                displayCharacterInfo(query, gotData);
-                $('#three').removeAttr('hidden');
-                $('main').attr('hidden', true);
-            })
-        }
+        
         startSearch();
