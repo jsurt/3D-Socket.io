@@ -9,7 +9,7 @@ $('#remote a').on('click', (event) => {
         button: remoteBtn
     });
 });
-var openedWindow;
+//var openedWindow;
 var isOpen = false;
 /*$('.power-button').on('click', () => {
     

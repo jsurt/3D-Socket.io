@@ -157,6 +157,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 `<p class="character-name">Name: ${data[characterId].Name}</p>
                 <p class="character-culture">Culture: ${data[characterId].Culture}</p>`
             );*/   
+            console.log(data);
             youtubeData = $.ajax({
                 type: "GET",
                 url: "https://www.googleapis.com/youtube/v3/search",
@@ -165,7 +166,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 data: {
                     part: "snippet",
                     key: "AIzaSyAH3n0AVo3RaBhwbs2lNFCQh6UJmluqj-w",
-                    q: `${query}`,
+                    q: "dog",
                     per_page: 9,
                 }, 
                 success: function(data){
@@ -176,7 +177,10 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function renderYoutubeResults(data) {
-                player = '<iframe src="https://www.youtube.com/embed/' + items[channel].id.videoId + '?enablejsapi=1" width="1500px" height="900px" class="tv-iframe"></iframe>';
+                let  videoID = items[channel].id.videoId
+                console.log(videoID);
+                player = '<iframe src="https://www.youtube.com/embed/' + videoID + '?autoplay=1&mute=1" width="1500px" height="900px" class="tv-iframe"></iframe>';
+                console.log(player);
                 element.innerHTML = player;
                 element.className = 'animated bounceInDown' ; 
                 element.style.background = "#000000";
@@ -228,7 +232,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             $('#search-form').submit(function(event){
                 event.preventDefault();
                 query = $('#search-video').val();
-                displayCharacterInfo(query, gotData);
+                displayCharacterInfo("dog", gotData);
                 $('#three').removeAttr('hidden');
                 $('main').attr('hidden', true);
             })
@@ -237,5 +241,5 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         /*$('.test').click(function(){
             $('#three').removeAttr('hidden');
         })*/
-        
+        displayCharacterInfo("dog", gotData);
         startSearch();

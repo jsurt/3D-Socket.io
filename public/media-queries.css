@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     main, .tv-container{
         display: none;
     }
@@ -14,7 +14,6 @@
         grid-template-rows: 100px 100px 100px;
         grid-template-areas: 
         "power home"
-        "play play"
         "down up"
         "info info";
         margin: auto;
@@ -38,10 +37,6 @@
         border: 0.1px solid #000000;
         border-radius: 50%;
     }
-    .play-button {
-        grid-area: play;
-        justify-content: center;
-    }
     .channel-down {
         grid-area: down;
     }
@@ -64,8 +59,11 @@
     }
 }
 
-@media only screen and (max-width: 760px) {
-    #search-video {
-        width: 400px;
+@media screen and (min-width: 601px) and (max-width: 760px) {
+    .header {
+        font-size: 36px !important;
     }
+    #search-video {
+        width: 400px !important; 
+    } 
 }
