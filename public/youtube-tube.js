@@ -202,7 +202,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function goToHomePage() {
-            $('.js-info').attr('hidden', true);
+            $('.video-info').attr('hidden', true);
             $('#three').attr('hidden', true);
             $('main').removeAttr('hidden');
         }
