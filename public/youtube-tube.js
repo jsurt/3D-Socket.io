@@ -158,27 +158,27 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             $('#three').attr('hidden', true);
             $('main').removeAttr('hidden');
         }
-        
+
         function remoteGetInfo() {
             $('.video-info').removeAttr('hidden');
             const items = youtubeData.responseJSON.items;
             console.log(items);
             console.log(items[channel].snippet.title);
             console.log(items[channel].snippet.description);
-            $('.js-info').html(`
+            /*$('.js-info').html(`
                 <p class="video-info video-title">${items[channel].snippet.title}</p>
                 <p class="video-info video-channel">${items[channel].snippet.channelTitle}</p>
-                <p class="video-info">${items[channel].snippet.description}</p>`);
+                <p class="video-info">${items[channel].snippet.description}</p>`);*/
             $('.video-title').html(`
-                <!--<span class="title">Video Title</span>-->
+                <h6 class="info-title">Video Title</h6>
                 <p>${items[channel].snippet.title}</p>
             `);
             $('.video-channel').html(`
-                <!--<span class="channel">Channel Title</span>-->
+                <h6 class="info-title">Channel Title</h6>
                 <p>${items[channel].snippet.channelTitle}</p>
             `);
             $('.video-description').html(`
-                <!--<span class="description">Summary</span>-->
+                <h6 class="info-title">Summary</h6>
                 <p>${items[channel].snippet.description}</p>
             `);
         }

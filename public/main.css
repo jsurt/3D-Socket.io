@@ -131,10 +131,18 @@ div{
     color: #ffffff;
 }
 
+.info-title {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
 .video-info {
     width: 150px;
-    border-bottom: 1px solid #ffffff;
-    padding-bottom: 15px;
+    margin: 5px;
 }
 
 .video-description {
