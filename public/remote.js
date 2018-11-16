@@ -37,13 +37,13 @@ socket.on('clickButton', (data) => {
             goToHomePage();
             break;
         case 'channel-up':
-            $('.js-info').empty();
+            //$('.js-info').empty();
             console.log('channel-up')
             channel ++;
             changeVideo();
             break;
         case 'channel-down':
-            $('.js-info').empty();
+            //$('.js-info').empty();
             console.log('channel-down')
             channel --;
             changeVideo();
