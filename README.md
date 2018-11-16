@@ -1,25 +1,13 @@
 
-# Socket.IO Chat
+# 3D YouTube TV
 
-A simple chat demo for socket.io
+https://threetv.herokuapp.com/
+![screen shot 2018-11-15 at 7 12 32 pm](https://user-images.githubusercontent.com/37096198/48589667-8da2c680-e90a-11e8-871b-fbd3860c684a.png)
+![screen shot 2018-11-15 at 7 16 10 pm](https://user-images.githubusercontent.com/37096198/48589788-0d309580-e90b-11e8-9b5c-220ae789c7cb.png)
+![example-photo-api-project](https://user-images.githubusercontent.com/37096198/48589598-356bc480-e90a-11e8-9a35-8673d902b050.png)
 
-## How to use
+# Summary
 
-```
-$ cd socket.io
-$ npm install
-$ cd examples/chat
-$ npm install
-$ npm start
-```
+Search YouTube on the home page and the videos the search returns will play on the TV. Open the website on mobile to change the channel, get information on the video, or go back to the home page to search again.
 
-And point your browser to `http://localhost:3000`. Optionally, specify
-a port by supplying the `PORT` env variable.
 
-## Features
-
-- Multiple users can join a chat room by each entering a unique username
-on website load.
-- Users can type chat messages to the chat room.
-- A notification is sent to all users when a user joins or leaves
-the chatroom.
