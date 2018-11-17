@@ -165,7 +165,7 @@ div{
 }
 
 .directionsDiv::before {
-    content: "Load website on mobile to use remote";
+    content: "After video search, load website on mobile to use remote";
     color: #ffffff;
     font-size: 22px;
     font-family: 'Raleway', sans-serif;
