@@ -25,7 +25,6 @@ socket.on('clickButton', (data) => {
     switch (data.data.button) {
         case 'power-button':
             console.log('power');
-            console.log(isOpen);
             /*if(isOpen) {
                 closeOpenedWindow();
             } else{
