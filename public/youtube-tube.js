@@ -195,6 +195,45 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 <p>${items[channel].snippet.description}</p>
             `);
         }
+
+        function powerButtonAnimation() {
+            $('.youtube-logo').toggleClass('hide');
+            $('iframe').toggleClass('hide');
+            $('div#topDiv').animate({
+                //51% for chrome
+                height: "51%",
+                opacity: 1
+            }, 300);
+            $('div#bottomDiv').animate({
+                //51% for chrome
+                height: "51%",
+                opacity: 1
+            }, 300, function(){
+                $('div#centerDiv').css({display: "block"}).animate({
+                    width: "0%",
+                    left: "50%"
+                    }, 300);
+                }
+            );
+            /*$('iframe').animate({
+                //51% for chrome
+                height: "51%"
+                ,opacity: 1
+            }, 300);
+            $('iframe').animate({
+                //51% for chrome
+                height: "51%"
+                ,opacity: 1
+            }, 300, function(){
+                    $('iframe').css({display: "block"}).animate({
+                            width: "0%",
+                            height: "0%",
+                            left: "50%"
+                         }, 300);
+                    }
+            );*/
+            
+        }
         
         
         startSearch();
