@@ -149,6 +149,14 @@ div{
     border: none;
 }
 
+body.power-off {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100000;
+    visibility: hidden;
+}
+
 .remote {
     display: none;
 }

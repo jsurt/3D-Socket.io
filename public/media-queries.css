@@ -63,3 +63,7 @@
         width: 400px !important; 
     } 
 }
+
+form {
+    display: block !important;
+}

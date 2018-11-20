@@ -38,6 +38,15 @@ io.on('connection', (socket) => {
         data: data
       });
     }
+    io.sockets.emit('clickButton', {
+      data: data
+    });
   });
+  socket.on('search', (data) => {
+    console.log(data);
+    io.sockets.emit('search', {
+      query: data.query
+    })
+  })
 });
 

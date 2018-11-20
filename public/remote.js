@@ -12,12 +12,13 @@ $('#remote a').on('click', (event) => {
 //var openedWindow;
 var isOpen = false;
 
-function openWindow() {
+/*function openWindow() {
   openedWindow = window.open(window.location.href, "_blank", "x=y, width=1500, height=900, top=100, left=500");
 }
 function closeOpenedWindow() {
   openedWindow.close();
-}
+}*/
+
 socket.on('clickButton', (data) => {
     console.log("data");
     console.log(data);
@@ -25,12 +26,13 @@ socket.on('clickButton', (data) => {
         case 'power-button':
             console.log('power');
             console.log(isOpen);
-            if(isOpen) {
+            /*if(isOpen) {
                 closeOpenedWindow();
             } else{
                 openWindow();
             }
-            isOpen = !isOpen;
+            isOpen = !isOpen;*/
+            $('body').toggleClass('power-off');
             break;
         case 'home-button':
             console.log('home');

@@ -100,13 +100,21 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             $('#search-form').submit(function(event){
                 event.preventDefault();
                 query = $('#search-video').val();
-                getYouTubeData(query);
-                $('#three').removeAttr('hidden');
-                $('main').attr('hidden', true);
+                
+                socket.emit('search',  {
+                    query: query
+                });
             })
         }
-        
+        socket.on('search', (data) => {
+            console.log(data.query);
+            let query = data.query;
+            getYouTubeData(query);
+                $('#three').removeAttr('hidden');
+                $('main').attr('hidden', true);
+        })
         function getYouTubeData(data, query) {
+
             query = $('#search-video').val();
             console.log(data);
             youtubeData = $.ajax({
