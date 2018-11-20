@@ -168,7 +168,12 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function remoteGetInfo() {
-            $('.video-info').removeAttr('hidden');
+            let $videoInfo = $('.video-info')
+            if($videoInfo.attr('hidden', true)) {
+                $videoInfo.attr('hidden', false);
+            } else {
+                $videoInfo.attr('hidden', true);
+            }
             const items = youtubeData.responseJSON.items;
             console.log(items);
             console.log(items[channel].snippet.title);
