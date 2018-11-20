@@ -38,9 +38,9 @@ io.on('connection', (socket) => {
         data: data
       });
     }
-    io.sockets.emit('clickButton', {
+    /*io.sockets.emit('clickButton', {
       data: data
-    });
+    });*/
   });
   socket.on('search', (data) => {
     console.log(data);
