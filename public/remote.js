@@ -10,7 +10,7 @@ $('#remote a').on('click', (event) => {
     });
 });
 //var openedWindow;
-var isOpen = false;
+//var isOpen = false;
 
 /*function openWindow() {
   openedWindow = window.open(window.location.href, "_blank", "x=y, width=1500, height=900, top=100, left=500");
