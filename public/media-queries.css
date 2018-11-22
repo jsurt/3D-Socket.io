@@ -1,8 +1,14 @@
 @media screen and (max-width: 600px) {
-    main, .tv-container{
+    .directionsDiv, .header-form-wrap, .tv-container{
         display: none;
     }
+    #search-video {
+        display: block;
+    }
     .video-info {
+        display: none;
+    }
+    #topDiv, #bottomDiv, #centerDiv {
         display: none;
     }
     #remote {

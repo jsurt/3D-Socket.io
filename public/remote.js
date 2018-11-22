@@ -31,7 +31,8 @@ socket.on('clickButton', (data) => {
                 openWindow();
             }
             isOpen = !isOpen;*/
-            $('body').toggleClass('power-off');
+            //$('body').toggleClass('power-off');
+            powerOff();
             break;
         case 'home-button':
             console.log('home');
