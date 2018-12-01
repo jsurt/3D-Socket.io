@@ -180,8 +180,7 @@ body.power-off {
     z-index: 20;
 }
 
-/*For power-button animation*/
-
+/*Animation*/
 #text{
     color:white;
     text-align:center;
@@ -195,6 +194,7 @@ body.power-off {
       background:black;
       position:absolute;
       top: 0%;
+      transition: all .3s;
   }
   div#bottomDiv{
       width:100%;
@@ -203,17 +203,32 @@ body.power-off {
       background:black;
       position:absolute;
       bottom: 0%;
+      transition: all .3s;
   }
-  div#centerDiv{
+  /*div#centerDiv{
       position:absolute;
       height: 1px;
       top: 50%;
       width:100%;
       background: white;
-      display:none;
+      visibility: hidden;
       z-index:1;
+      transition: all .3s;
+      transition-delay: .3s;
+      left: 0;
+  }*/
+
+  .hidden {
+      display: none !important;
   }
 
-  .hide {
-      display: none;
+  #topDiv.off, #bottomDiv.off {
+      height: 51%;
+      opacity: 1;
+      
+  }
+  #centerDiv.off{
+    visibility: visible;
+    width: 0%;
+    left: 50%;
   }

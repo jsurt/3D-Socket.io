@@ -32,7 +32,7 @@ socket.on('clickButton', (data) => {
             }
             isOpen = !isOpen;*/
             //$('body').toggleClass('power-off');
-            powerButtonAnimation();
+            powerOff();
             break;
         case 'home-button':
             console.log('home');

@@ -1,8 +1,29 @@
 @media screen and (max-width: 600px) {
-    main, .tv-container{
+    .directionsDiv, .header-form-wrap, .tv-container{
         display: none;
     }
+    #search-video {
+        display: inline;
+        width: 125px;
+        font-size: 12px;
+    }
+    #search-btn {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 37px;
+        width: 40px;
+        border-left: 0px;
+        border-radius: 0px;
+        background: #ffffff;
+        background-image:  url(https://image.flaticon.com/icons/svg/149/149309.svg);
+        background-position: center;
+        background-size: 20px;
+        background-repeat: no-repeat;
+    }
     .video-info {
+        display: none;
+    }
+    #topDiv, #bottomDiv, #centerDiv {
         display: none;
     }
     #remote {

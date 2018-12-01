@@ -2,6 +2,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         var scene2, renderer2;
         var items = [];
         var channel = 0;
+        let query = $('#search-video').val();
 
 
 
@@ -74,7 +75,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             //CSS Object
             div = new THREE.CSS3DObject(element);
             div.position.x = -195;
-            div.position.y = 255;
+            div.position.y = 205;
             div.position.z = 450;
             div.id = 'tv-div';
             div.scale.set(0.5, 0.66, 0.95);
@@ -100,23 +101,28 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             $('#search-form').submit(function(event){
                 event.preventDefault();
                 query = $('#search-video').val();
-                
                 socket.emit('search',  {
                     query: query
                 });
             })
         }
         socket.on('search', (data) => {
+            //query = $('#search-video').val();
             console.log(data.query);
             let query = data.query;
             getYouTubeData(query);
-                $('#three').removeAttr('hidden');
+            $('#three').removeAttr('hidden');
+            if ($(window).width() > 600) {
                 $('main').attr('hidden', true);
+            } else {
+            $('.header-form-wrap, .directionsDiv').attr('hidden', true);
+            }
+            $('#search-video').blur();
         })
-        function getYouTubeData(data, query) {
-
-            query = $('#search-video').val();
-            console.log(data);
+        function getYouTubeData(query) {
+            //query = $('#search-video').val();
+            console.log(query);
+            //console.log(data);
             youtubeData = $.ajax({
                 type: "GET",
                 url: "https://www.googleapis.com/youtube/v3/search",
@@ -129,14 +135,15 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                     per_page: 9,
                 }, 
                 success: function(data){
+                    console.log(data);
                     items = data.items;
-                    renderYoutubeResults(); 
+                    renderYoutubeResults(data); 
                 }
             });
         }
 
         function renderYoutubeResults(data) {
-                let  videoID = items[channel].id.videoId
+                let  videoID = items[channel].id.videoId;
                 console.log(videoID);
                 player = '<iframe src="https://www.youtube.com/embed/' + videoID + '?autoplay=1&mute=1" width="1500px" height="900px" class="tv-iframe"></iframe>';
                 console.log(player);
@@ -162,6 +169,7 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
         }
 
         function goToHomePage() {
+            $('#search-video').val('');
             $('.video-info').attr('hidden', true);
             $('#three').attr('hidden', true);
             $('main').removeAttr('hidden');
@@ -196,9 +204,8 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
             `);
         }
 
-        function powerButtonAnimation() {
-            $('.youtube-logo').toggleClass('hide');
-            $('iframe').toggleClass('hide');
+        function powerOffAnimation() {
+            $('.youtube-logo, iframe, video, .animated').toggleClass('hidden');
             $('div#topDiv').animate({
                 //51% for chrome
                 height: "51%",
@@ -209,31 +216,17 @@ var camera, light, scene, renderer, rectangle, scene2, renderer2, div, controls;
                 height: "51%",
                 opacity: 1
             }, 300, function(){
-                $('div#centerDiv').css({display: "block"}).animate({
-                    width: "0%",
-                    left: "50%"
-                    }, 300);
-                }
-            );
-            /*$('iframe').animate({
-                //51% for chrome
-                height: "51%"
-                ,opacity: 1
-            }, 300);
-            $('iframe').animate({
-                //51% for chrome
-                height: "51%"
-                ,opacity: 1
-            }, 300, function(){
-                    $('iframe').css({display: "block"}).animate({
+                    $('div#centerDiv').css({display: "block"}).animate({
                             width: "0%",
-                            height: "0%",
                             left: "50%"
                          }, 300);
                     }
-            );*/
-            
+            );
         }
-        
+
+        function powerOff() {
+            $('div#topDiv, div#bottomDiv, div#centerDiv').toggleClass('off');
+            $('.youtube-logo, iframe, video').toggleClass('hidden');
+        }
         
         startSearch();
