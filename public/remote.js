@@ -33,6 +33,7 @@ socket.on('clickButton', (data) => {
             isOpen = !isOpen;*/
             //$('body').toggleClass('power-off');
             powerOff();
+            goToHomePage();
             break;
         case 'home-button':
             console.log('home');
